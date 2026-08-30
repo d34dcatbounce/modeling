@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#CB246C">
+<meta name="description" content="정사영 합 — 실루엣으로부터의 역산">
+<title>정사영 합</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23CB246C'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23FFE2F0' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="DDD.css">
+</head>
+<body>
+<div id="app">
+  <div id="panels">
+    <div class="panel" id="pStk" aria-label="쌓기 · 좌극한"></div>
+    <div class="panel" id="pObj" aria-label="물체"></div>
+    <div class="panel" id="pCar" aria-label="깎기 · 우극한"></div>
+    <canvas id="gl"></canvas>
+    <canvas id="flash"></canvas>
+  </div>
+  <div id="bar">
+    <div id="tally" aria-label="촬영 횟수"></div>
+    <div id="track" aria-label="잔여 부피"><div id="fill" style="width:100%"></div></div>
+    <button id="shutter" aria-label="촬영"><i></i></button>
+  </div>
+</div>
+<canvas id="fx"></canvas>
+<div id="result" aria-live="polite">
+  <p id="resTitle">원본 대비</p>
+  <div id="gauges">
+    <figure class="gauge">
+      <div class="ring">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="trk" cx="100" cy="100" r="78"/>
+          <circle class="val" id="lArc" cx="100" cy="100" r="78"/>
+          <circle class="ovf" id="lOvf" cx="100" cy="100" r="90"/>
+          <line class="tick" x1="100" y1="28" x2="100" y2="40"/>
+        </svg>
+        <b class="pct"><span id="lNum">0.0</span><i>%p</i></b>
+      </div>
+    </figure>
+    <figure class="gauge">
+      <div class="ring">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="trk" cx="100" cy="100" r="78"/>
+          <circle class="val" id="rArc" cx="100" cy="100" r="78"/>
+          <circle class="ovf" id="rOvf" cx="100" cy="100" r="90"/>
+          <line class="tick" x1="100" y1="28" x2="100" y2="40"/>
+        </svg>
+        <b class="pct"><span id="rNum">0.0</span><i>%p</i></b>
+      </div>
+    </figure>
+  </div>
+</div>
+<div id="boot">
+  <button id="playBtn" aria-label="시작"><i></i></button>
+</div>
+<div id="fail">이 브라우저에서는 WebGL을 사용할 수 없습니다.</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="DDD.js"></script>
+</body>
+</html>

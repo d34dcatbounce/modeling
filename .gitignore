@@ -1,0 +1,15 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OneDrive 동기화 잔여물
+*.tmp
+~$*
